@@ -36,8 +36,13 @@ Rails5.1.1
 ## カタログ設計　　
 https://docs.google.com/spreadsheets/d/18ZuaBTAC9AaWTKdxqos6xK_Fv5GZj6uwvP1Jq6Q6ZK4/edit#gid=0　　
 ## テーブル定義　　
+https://docs.google.com/spreadsheets/d/18ZuaBTAC9AaWTKdxqos6xK_Fv5GZj6uwvP1Jq6Q6ZK4/edit#gid=1108221798
+## ER図　　
+https://docs.google.com/spreadsheets/d/18ZuaBTAC9AaWTKdxqos6xK_Fv5GZj6uwvP1Jq6Q6ZK4/edit#gid=1260486951
 ## 画面遷移図　　
+https://docs.google.com/spreadsheets/d/18ZuaBTAC9AaWTKdxqos6xK_Fv5GZj6uwvP1Jq6Q6ZK4/edit#gid=747010362
 ## 画面ワイヤーフレーム　　
+https://docs.google.com/spreadsheets/d/1g7aMqK6oKqARjGLcbqmGlamKRnkO6oqqEYZA0Lf3L8Y/edit#gid=1788986695
 ## 使用予定gem  
 * letter_opener_web  
 * carrierwave  
