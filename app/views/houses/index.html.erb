@@ -1,0 +1,90 @@
+<head>
+    <title>Osumosan</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<div class="top-wrapper">
+    <div class="container">
+      <%= search_form_for @q do |f| %>
+            <%= f.label :location_start, "所在地" %>
+            <%= f.search_field :location_start %>
+            <br />
+            <%= f.label :access_start, "最寄り駅" %>
+            <%= f.search_field :access_start %>
+            <br />
+            家賃
+            <%= f.label :rent_gteq, "下限" %>
+            <%= f.number_field :rent_gteq %>
+            <%= f.label :rent_lteq, "上限" %>
+            <%= f.number_field :rent_lteq %>
+            <br />
+            敷金
+            <%= f.label :deposit_gteq, "下限" %>
+            <%= f.number_field :deposit_gteq %>
+            <%= f.label :deposit_lteq, "上限" %>
+            <%= f.number_field :deposit_lteq %>
+            <br />
+            礼金
+            <%= f.label :gratuityfee_gteq, "下限" %>
+            <%= f.number_field :gratuityfee_gteq %>
+            <%= f.label :gratuityfee_lteq, "上限" %>
+            <%= f.number_field :gratuityfee_lteq %>
+            <br />
+            専有面積
+            <%= f.label :area_gteq, "下限" %>
+            <%= f.number_field :area_gteq %>
+            <%= f.label :area_lteq, "上限" %>
+            <%= f.number_field :area_lteq %>
+            <br />
+            築年数
+            <%= f.label :age_gteq, "下限" %>
+            <%= f.number_field :age_gteq %>
+            <%= f.label :age_lteq, "上限" %>
+            <%= f.number_field :age_lteq %>
+            <br />
+            <%= f.label :layout_start, "間取り" %>
+            <%= f.search_field :layout_start %>
+            <br />
+            <%= f.label :lightning_start, "主要採光面" %>
+            <%= f.search_field :lightning_start %>
+            <br />
+            <%= f.label :service_start, "設備" %>
+            <%= f.search_field :service_start %>
+            <br />
+            <%= f.label :hashtag_start, "ハッシュタグ" %>
+            <%= f.search_field :hashtag_start %>
+            <br />
+            <%# 検索ボタン %>
+            <%= f.submit %>
+        <% end %>
+    
+        <% @houses.each do |house| %>
+          <div class="content" valign="top">
+            <h1>物件名<%= house.title %></h1>
+            <%= image_tag @house.image.url, :size => "500x500"%>
+            <h2>所在地<%= house.location %></h2>
+            <h2>最寄り駅<%= house.access %></h2>
+            <h2>家賃<%= house.rent %></h2>
+            <h2>敷金<%= house.deposit %></h2>
+            <h2>礼金<%= house.gratuityfee %></h2>
+            <h2>専有面積<%= house.area %></h2>
+            <h2>築年数<%= house.age %></h2>
+            <h2>間取り<%= house.layout %></h2>
+            <h2>主要採光面<%= house.lightning %></h2>
+            <h2>設備<%= house.service %></h2>
+            <h2>ハッシュタグ<%= house.hashtag %></h2>
+            <div class="house-links">
+              <%= link_to '詳細', house_path(house.id), class: 'btn btn-success' %>
+              <% if vendor_signed_in? %>
+                 <%= link_to '編集', edit_house_path(house.id), class: 'btn btn-warning' %>
+                 <%= link_to '削除', house_path(house.id), method: :delete ,data: { confirm: '本当に削除して宜しいいでしょうか？' }, class: 'btn btn-danger' %>
+              <% end %>
+            </div>
+          </div>
+          <br><br><br><br><br>
+        <% end %> 
+    </div>
+</div>

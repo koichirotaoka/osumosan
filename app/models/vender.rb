@@ -1,2 +1,0 @@
-class Vender < ApplicationRecord
-end

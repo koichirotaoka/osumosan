@@ -1,0 +1,72 @@
+<head>
+    <title>Osumosan</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="./font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<div class="top-wrapper">
+  <div class="container">
+    <h1>Is this OK?</h1>
+
+    <%= form_with(model: @house, url: houses_path, local: true, method: 'post') do |form| %>
+      <h2><%= form.hidden_field :title %></h2>
+      <h2>物件名<%= @house.title %></h2>
+      <br>
+      <%= image_tag(@house.image.url, :size => "500x500") %>
+      <%= form.hidden_field :image_cache %>
+      <br>
+      <h2><%= form.hidden_field :location %></h2>
+      <h2>所在地<%= @house.location %></h2>
+      <br>
+      <h2><%= form.hidden_field :access %></h2>
+      <h2>最寄り駅<%= @house.access %></h2>
+      <br>
+      <h2><%= form.hidden_field :rent %></h2>
+      <h2>家賃<%= @house.rent %></h2>
+      <br>
+      <h2><%= form.hidden_field :deposit %></h2>
+      <h2>敷金<%= @house.deposit %></h2>
+      <br>
+      <h2><%= form.hidden_field :gratuityfee %></h2>
+      <h2>礼金<%= @house.gratuityfee %></h2>
+      <br>
+      <h2><%= form.hidden_field :area %></h2>
+      <h2>専有面積<%= @house.area %></h2>
+      <br>
+      <h2><%= form.hidden_field :age %></h2>
+      <h2>築年数<%= @house.age %></h2>
+      <br>
+      <h2><%= form.hidden_field :layout %></h2>
+      <h2>間取り<%= @house.layout %></h2>
+      <br>
+      <h2><%= form.hidden_field :lightning %></h2>
+      <h2>主要採光面<%= @house.lightning %></h2>
+      <br>
+      <h2><%= form.hidden_field :service %></h2>
+      <h2>設備<%= @house.service %></h2>
+      <br>
+      <h2><%= form.hidden_field :hashtag %></h2>
+      <h2>ハッシュタグ<%= @house.hashtag %></h2>
+      <br>
+      <%= form.submit  "投稿する", class: 'btn btn-primary' %>
+    <% end %>
+    
+    <%= form_with(model: @picture, url: new_picture_path, local: true, method: 'get') do |form| %>
+      <h1><%= form.hidden_field :title %></h1>
+      <h2><%= form.hidden_field :location %></h2>
+      <h2><%= form.hidden_field :access %></h2>
+      <h2><%= form.hidden_field :rent %></h2>
+      <h2><%= form.hidden_field :deposit %></h2>
+      <h2><%= form.hidden_field :gratuityfee %></h2>
+      <h2><%= form.hidden_field :area %></h2>
+      <h2><%= form.hidden_field :age %></h2>
+      <h2><%= form.hidden_field :layout %></h2>
+      <h2><%= form.hidden_field :lightning %></h2>
+      <h2><%= form.hidden_field :service %></h2>
+      <h2><%= form.hidden_field :hashtag %></h2>
+      <%= form.submit "もどる", name: 'back', class: 'btn btn-secondary'%>
+    <% end %>
+    
+  </div>
+</div>

@@ -6,9 +6,70 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    </head>
 
   <body>
+    <header>
+      <div class="contain">
+        <div class="header-left">
+              <div class="logo">
+                <div class="vertical"></div>
+                <span class="spellchild" aria-label="Instagram">instagram</span>
+              </div>
+        </div>
+        <div class="header-right clearfix">
+          <% if user_signed_in? %>
+            <div class="logout">
+              <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-secondary", method: :delete %>
+            </div>
+            <div class="favorite">
+              <%= link_to "お気に入り一覧", "/users/favorites/#{current_user.id}", class: "btn btn-secondary"%>
+            </div>
+            <div class="list">
+              <%= link_to "物件一覧",houses_path, class: "btn btn-secondary"%>
+            </div>
+            <div class="mypage">
+              <%= link_to "MYページ", user_path(current_user.id), class: "btn btn-secondary" %>
+            </div>
+            <div class="change">
+              <%= link_to "プロフィール変更", edit_user_registration_path, class: "btn btn-secondary" %>
+            </div>
+          <% elsif vendor_signed_in?%>
+            <div class="logout">
+              <%= link_to "ログアウト", destroy_vendor_session_path, class: "btn btn-secondary", method: :delete %>
+            </div>
+            <div class="list">
+              <%= link_to "物件一覧",houses_path, class: "btn btn-secondary"%>
+            </div>
+            <div class="mypage">
+              <%= link_to "MYページ", vendor_path(current_vendor.id), class: "btn btn-secondary" %>
+            </div>
+            <div class="new">
+              <%= link_to "新規投稿", new_house_path, class: "btn btn-secondary" %>
+            </div>
+            <div class="change">
+              <%= link_to "プロフィール変更", edit_vendor_registration_path, class: "btn btn-secondary" %>
+            </div>
+          <%else%>
+            <div class="login">
+              <%= link_to "不動産業者の方はこちら", new_vendor_session_path, class: "btn btn-secondary" %>
+            </div>
+            <div class="login">
+              <%= link_to "ログイン", new_user_session_path, class: "btn btn-secondary" %>
+            </div>
+            <div class="registration">
+              <%= link_to "新規登録(不動産業者専用)",new_vendor_registration_path, class: "btn btn-secondary"%>
+            </div>
+            <div class="registration">
+              <%= link_to "新規登録",new_user_registration_path, class: "btn btn-secondary"%>
+            </div>
+          <% end %>
+           
+    </header>
+    
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    
   </body>
 </html>

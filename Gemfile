@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#追加
+gem "ransack"
+gem 'devise'
+
 
 
 gem 'rails', '~> 5.1.1'
@@ -38,3 +42,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #追加
 gem 'faker'
+

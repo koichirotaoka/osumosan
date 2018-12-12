@@ -1,0 +1,45 @@
+<head>
+    <title>Osumosan</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="./font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+ </head>
+
+<div class="top-wrapper">
+  <div class="container">
+      <div class="content">
+        <h1>詳細画面</h1>
+        <h2>物件名<%= @house.title %></h2>
+        <%= image_tag @house.image.url, :size => "500x500"%>
+        <h2>所在地<%= @house.location %></h2>
+        <h2>最寄り駅<%= @house.access %></h2>
+        <h2>家賃<%= @house.rent %></h2>
+        <h2>敷金<%= @house.deposit %></h2>
+        <h2>礼金<%= @house.gratuityfee %></h2>
+        <h2>専有面積<%= @house.area %></h2>
+        <h2>築年数<%= @house.age %></h2>
+        <h2>間取り<%= @house.layout %></h2>
+        <h2>主要採光面<%= @house.lightning %></h2>
+        <h2>設備<%= @house.service %></h2>
+        <h2>ハッシュタグ<%= @house.hashtag %></h2>
+      <div>
+        <% unless @house.user_id == current_user.id %>
+          <% if @favorite.present? %>
+            <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger'%>
+          <% else %>
+            <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-warning'%>
+          <% end %>
+        <% end %>
+        <br><%= link_to "もどる", pictures_path, class: 'btn btn-secondary' %>
+      </div>
+  </div>
+</div>
+  
+ <script>
+    $("#methods-test2").click(function(){
+    $(this).button('dispose').removeAttr('data-toggle');
+  });
+  </script>
+
+ 

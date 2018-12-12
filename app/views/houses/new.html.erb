@@ -1,0 +1,65 @@
+<head>
+    <title>Osumosan</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="./font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+
+<div class="top-wrapper">
+  <div class="container">
+    <%= form_with(model: @house, local: true ,url: choose_new_or_edit) do |form| %>
+      <% if @house.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @house.errors.count %>件のエラーがあります。</h2>
+          <ul>
+            <% @house.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form.label :"物件名" %>
+      <%= form.text_field :title %>
+      <br />
+      <%= image_tag(@house.image.url) if @house.image.url %>
+      <%= form.file_field :image %>
+      <br />
+      <%= form.label :"所在地" %>
+      <%= form.text_field :location %>
+      <br />
+      <%= form.label :"最寄り駅" %>
+      <%= form.text_field :access %>
+      <br />
+      <%= form.label :"家賃" %>
+      <%= form.text_field :rent %>
+      <br />
+      <%= form.label :"敷金" %>
+      <%= form.text_field :deposit %>
+      <br />
+      <%= form.label :"礼金" %>
+      <%= form.text_field :gratuityfee %>
+      <br />
+      <%= form.label :"専有面積" %>
+      <%= form.text_field :area %>
+      <br />
+      <%= form.label :"築年数" %>
+      <%= form.text_field :age %>
+      <br />
+      <%= form.label :"間取り" %>
+      <%= form.text_field :layout %>
+      <br />
+      <%= form.label :"主要採光面" %>
+      <%= form.text_field :lightning %>
+      <br />
+      <%= form.label :"設備" %>
+      <%= form.text_field :service %>
+      <br />
+      <%= form.label :"ハッシュタグ" %>
+      <%= form.text_field :hashtag %>
+      <br />
+      <%= form.submit  "投稿する" , class: 'btn btn-success'%>
+    <% end %>
+    <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="top-wrapper">
+  <div class="container">
+  <h1>お気に入り一覧</h1>
+    <% @favorite_house.each do |favorite| %>
+      <br>
+      <h1><%= favorite.house.title %></h1>
+      <%= image_tag(favorite.image.url, :size => "500x500") %>
+      <h2>家賃<span><%= favorite.rent %></span></h2>
+      <h2>敷金<span><%= favorite.deposit %></span></h2>
+      <h2>礼金<span><%= favorite.gratuityfee %></span></h2>
+      <h2>県庁所在地<span><%= favorite.location %></span></h2>
+      <h2>駅<span><%= favorite.access %></span></h2>
+      <h2>専有面積<span><%= favorite.area %></span></h2>
+      <h2>築年数<span><%= favorite.age %></span></h2>
+      <h2>間取り<span><%= favorite.layout %></span></h2>
+      <h2>主要採光面<span><%= favorite.lightning %></span></h2>
+      <h2>設備<span><%= favorite.service %></span></h2>
+      <h2>ハッシュタグ<span><%= favorite.hashtag %></span></h2>
+      <br>
+    <% end %>
+  </div>
+</div>
