@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/vendors/sign_out' => 'vendor/sessions#destroy'
   
   
+  
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords:     'users/passwords',
@@ -17,8 +18,6 @@ Rails.application.routes.draw do
   }
   resources :users
   get '/users/sign_out' => 'user/sessions#destroy'
-
-  get 'tops/index'
 
 
   resources :houses

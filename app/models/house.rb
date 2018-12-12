@@ -17,5 +17,5 @@ class House < ApplicationRecord
   has_one :vendor, inverse_of: :house
   
   mount_uploader :image, ImageUploader
-  validates :user, presence:true
+  
 end
