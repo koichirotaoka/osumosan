@@ -52,7 +52,7 @@
       <%= form.submit  "投稿する", class: 'btn btn-primary' %>
     <% end %>
     
-    <%= form_with(model: @picture, url: new_picture_path, local: true, method: 'get') do |form| %>
+    <%= form_with(model: @picture, url: new_house_path, local: true, method: 'get') do |form| %>
       <h1><%= form.hidden_field :title %></h1>
       <h2><%= form.hidden_field :location %></h2>
       <h2><%= form.hidden_field :access %></h2>
