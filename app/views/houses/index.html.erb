@@ -65,7 +65,7 @@
         <% @houses.each do |house| %>
           <div class="content" valign="top">
             <h1>物件名<%= house.title %></h1>
-            <%= image_tag @house.image.url, :size => "500x500"%>
+            <%= image_tag(house.image.url, :size => "500x500") %>
             <h2>所在地<%= house.location %></h2>
             <h2>最寄り駅<%= house.access %></h2>
             <h2>家賃<%= house.rent %></h2>
