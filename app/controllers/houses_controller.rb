@@ -3,6 +3,7 @@ class HousesController < ApplicationController
   before_action :login_check_user, only: [:edit, :show, :destroy]
   before_action :login_check_vendor, only: [:edit, :show, :destroy]
   
+  
  
   def index
     @q        = House.search(params[:q])
