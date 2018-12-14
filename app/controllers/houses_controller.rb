@@ -22,7 +22,6 @@ class HousesController < ApplicationController
     @house = House.new(house_params)
     @house.vendor_id = current_vendor.id 
     if @house.save
-      HouseMailer.house_mail(@house).deliver  ##追記
       redirect_to houses_path, notice: 'Complete！'
     else
       render 'new'
@@ -60,7 +59,7 @@ class HousesController < ApplicationController
   private
   
   def house_params
-    params.require(:house).permit(:title, :rent, :deposit, :gratuityfee, :location, :access, :area, :age, :layout, :lightning, :service, :hashtag,  :image, :image_cache, :vender_id)
+    params.require(:house).permit(:title, :rent, :deposit, :gratuityfee, :location, :access, :area, :age, :layout, :lightning, :service, :hashtag, :image, :image_cache, :vender_id)
   end
   
   def set_house

@@ -28,24 +28,4 @@ Rails.application.routes.draw do
   end
   
   resources :favorites, only: [:create, :destroy]
-  resources :contacts
-  resources :contacts do
-    collection do
-      post :confirm
-    end
-  end
-  
-  ##### 問い合わせフォーム
-  get 'contact' => 'contact#index' 
-  get 'contact/confirm' => redirect("/contact")
-  get 'contact/thanks' => redirect("/contact")
-  ##### 問い合わせ確認画面
-  post 'contact/confirm' => 'contact#confirm'
-  ##### 問い合わせ完了画面
-  post 'contact/thanks' => 'contact#thanks'
- 
-  
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
 end

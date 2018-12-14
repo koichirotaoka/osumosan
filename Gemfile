@@ -8,6 +8,9 @@ end
 #追加
 gem "ransack"
 gem 'devise'
+gem 'letter_opener_web'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 
 
@@ -33,10 +36,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  #追加
-  gem 'letter_opener_web'
-  gem 'carrierwave', '~> 1.0'
-  gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
