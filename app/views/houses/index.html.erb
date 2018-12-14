@@ -61,6 +61,14 @@
             <%# 検索ボタン %>
             <%= f.submit %>
         <% end %>
+        
+        <form>
+<select name="都道府県">
+<option value="1">北海道</option>
+<option value="2" selected>東京</option>
+<option value="3">沖縄</option>
+</select>
+</form>
     
         <% @houses.each do |house| %>
           <div class="content" valign="top">
