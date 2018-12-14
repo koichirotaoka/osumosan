@@ -27,5 +27,12 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :contacts
+  resources :contacts do
+    collection do
+      post :confirm
+    end
+  end
+  
   resources :favorites, only: [:create, :destroy]
 end
