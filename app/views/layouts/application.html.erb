@@ -13,8 +13,7 @@
       <div class="contain">
         <div class="header-left">
               <div class="logo">
-                <div class="vertical"></div>
-                <span class="spellchild" aria-label="Instagram">instagram</span>
+                お住もうさん
               </div>
         </div>
         <div class="header-right clearfix">
@@ -52,16 +51,16 @@
             </div>
           <%else%>
             <div class="login">
-              <%= link_to "不動産業者の方はこちら", new_vendor_session_path, class: "btn btn-secondary" %>
+              <%= link_to "ログイン(不動産業者専用)", new_vendor_session_path, class: "btn btn-secondary" %>
             </div>
             <div class="login">
-              <%= link_to "ログイン", new_user_session_path, class: "btn btn-secondary" %>
+              <%= link_to "ログイン(一般)", new_user_session_path, class: "btn btn-secondary" %>
             </div>
             <div class="registration">
               <%= link_to "新規登録(不動産業者専用)",new_vendor_registration_path, class: "btn btn-secondary"%>
             </div>
             <div class="registration">
-              <%= link_to "新規登録",new_user_registration_path, class: "btn btn-secondary"%>
+              <%= link_to "新規登録(一般)",new_user_registration_path, class: "btn btn-secondary"%>
             </div>
           <% end %>
            
