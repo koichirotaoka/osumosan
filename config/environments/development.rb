@@ -33,6 +33,9 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
   #追加
-  config.action_mailer.default_url_options = { host: 'osumosan-koichirotaoka.c9users.io' }
+  config.action_mailer.default_url_options = { host: 'osumosan-koichirotaoka.c9users.io' , port: 80}
+  config.web_console.whitelisted_ips = '0.0.0.0/0'
   config.action_mailer.delivery_method = :letter_opener
+
+
 end

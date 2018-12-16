@@ -3,7 +3,7 @@
   <head>
     <title>Osumosan</title>
     <%= csrf_meta_tags %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
@@ -22,7 +22,7 @@
               <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-secondary", method: :delete %>
             </div>
             <div class="favorite">
-              <%= link_to "お気に入り一覧", "/users/favorites/#{current_user.id}", class: "btn btn-secondary"%>
+              <%= link_to "お気に入り一覧", "/users/favorite/#{current_user.id}", class: "btn btn-secondary"%>
             </div>
             <div class="list">
               <%= link_to "物件一覧",houses_path, class: "btn btn-secondary"%>
@@ -63,6 +63,7 @@
               <%= link_to "新規登録(一般)",new_user_registration_path, class: "btn btn-secondary"%>
             </div>
           <% end %>
+          
            
     </header>
     

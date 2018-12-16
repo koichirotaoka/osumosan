@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @houses = @user.houses
   end
   
-  def favorites
+  def favorite
     @user = User.find(params[:id])
     @favorite_houses = @user.favorite_houses
   end

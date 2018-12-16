@@ -12,8 +12,6 @@ gem 'letter_opener_web'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
-
-
 gem 'rails', '~> 5.1.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -41,4 +39,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #追加
 gem 'faker'
+gem 'therubyracer'
+
 

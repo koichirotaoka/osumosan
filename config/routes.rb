@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   resources :vendors
   get '/vendors/sign_out' => 'vendor/sessions#destroy'
   
-  
-  
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords:     'users/passwords',
@@ -19,20 +17,26 @@ Rails.application.routes.draw do
   resources :users
   get '/users/sign_out' => 'user/sessions#destroy'
 
-
   resources :houses
   resources :houses do
     collection do
       post :confirm
     end
   end
-  
-  resources :contacts
-  resources :contacts do
-    collection do
-      post :confirm
-    end
+  resources :houses do
+    post 'add' => 'favorites#create'
+    delete '/add' => 'favorites#destroy'
   end
-  
+  get "/users/favorite/:id" => "users#favorite"
   resources :favorites, only: [:create, :destroy]
+  
+   ##### 問い合わせフォーム
+  get 'contact' => 'contact#index' 
+  get 'contact/confirm' => redirect("/contact")
+  get 'contact/thanks' => redirect("/contact")
+  ##### 問い合わせ確認画面
+  post 'contact/confirm' => 'contact#confirm'
+  ##### 問い合わせ完了画面
+  post 'contact/thanks' => 'contact#thanks'
+  
 end

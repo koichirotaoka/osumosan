@@ -1,7 +1,6 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
-  before_action :login_check_user, only: [:edit, :show, :destroy]
-  before_action :login_check_vendor, only: [:edit, :show, :destroy]
+  before_action :login_check_vendor, only: [:edit, :destroy]
   
   
  
@@ -17,6 +16,10 @@ class HousesController < ApplicationController
     else
       @house = House.new
     end
+  end
+  
+  def show
+   
   end
 
   def create
@@ -35,9 +38,6 @@ class HousesController < ApplicationController
     render :new if @house.invalid?
   end
   
-  def show
-    @house = current_user.favorites.find_by(house_id: @house.id)
-  end
   
   def destroy
     @house.destroy

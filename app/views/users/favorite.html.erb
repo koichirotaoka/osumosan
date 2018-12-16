@@ -1,9 +1,9 @@
 <div class="top-wrapper">
   <div class="container">
   <h1>お気に入り一覧</h1>
-    <% @favorite_house.each do |favorite| %>
+    <% @favorite_houses.each do |favorite| %>
       <br>
-      <h1><%= favorite.house.title %></h1>
+      <h1><%= favorite.title %></h1>
       <%= image_tag(favorite.image.url, :size => "500x500") %>
       <h2>家賃<span><%= favorite.rent %></span></h2>
       <h2>敷金<span><%= favorite.deposit %></span></h2>
@@ -18,5 +18,6 @@
       <h2>ハッシュタグ<span><%= favorite.hashtag %></span></h2>
       <br>
     <% end %>
+    <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
   </div>
 </div>

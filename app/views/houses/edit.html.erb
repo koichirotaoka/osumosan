@@ -23,7 +23,7 @@
       <h2>編集画面</h2>
     
       <div class="field">
-        <%= form.label :"物件名" %>
+        <%= form.label :"物件名" %>：
         <%= form.text_field :title %>
       </div>
       <div>
@@ -31,53 +31,53 @@
         <%= form.file_field :image %>
       </div>
       <div class="field">
-        <%= form.label :"所在地" %>
+        <%= form.label :"所在地" %>：
         <%= form.text_field :location %>
       </div>
       <div class="field">
-        <%= form.label :"最寄り駅" %>
-        <%= form.text_field :access %>
+        <%= form.label :"最寄り駅" %>：
+        <%= form.text_field :access %>駅
       </div>
       <div class="field">
-        <%= form.label :"家賃" %>
-        <%= form.text_field :rent %>
+        <%= form.label :"家賃" %>：
+        <%= form.text_field :rent %>円
       </div>
       <div class="field">
-        <%= form.label :"敷金" %>
-        <%= form.text_field :deposit %>
+        <%= form.label :"敷金" %>：
+        <%= form.text_field :deposit %>円
       </div>
       <div class="field">
-        <%= form.label :"礼金" %>
-        <%= form.text_field :gratuityfee %>
+        <%= form.label :"礼金" %>：
+        <%= form.text_field :gratuityfee %>円
       </div>
       <div class="field">
-        <%= form.label :"専有面積" %>
-        <%= form.text_field :area %>
+        <%= form.label :"専有面積" %>：
+        <%= form.text_field :area %>ｍ²
       </div>
       <div class="field">
-        <%= form.label :"築年数" %>
-        <%= form.text_field :age %>
+        <%= form.label :"築年数" %>：
+        <%= form.text_field :age %>年
       </div>
       <div class="field">
-        <%= form.label :"間取り" %>
+        <%= form.label :"間取り" %>：
         <%= form.text_field :layout %>
       </div>
       <div class="field">
-        <%= form.label :"主要採光面" %>
+        <%= form.label :"主要採光面" %>：
         <%= form.text_field :lightning %>
       </div>
       <div class="field">
-        <%= form.label :"設備" %>
-        <%= form.text_field :service %>
+        <%= form.label :"設備" %>：
+        <%= form.text_area :service %>
       </div>
       <div class="field">
-        <%= form.label :"ハッシュタグ" %>
-        <%= form.text_field :hashtag %>
+        <%= form.label :"ハッシュタグ" %>：
+        <%= form.text_area :hashtag %>
       </div>
           
       <%= form.submit  "編集する" , class: 'btn btn-success'%>
           
     <% end %>
-    <%= link_to "もどる", pictures_path , class: 'btn btn-secondary'%>
+    <%= link_to "もどる", houses_path , class: 'btn btn-secondary'%>
   </div>
 </div>
