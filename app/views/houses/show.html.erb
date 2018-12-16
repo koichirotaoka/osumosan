@@ -26,8 +26,9 @@
       </div>
       <% if !Favorite.exists?(user_id:current_user.id,house_id: @house.id) %>
         <%= link_to "お気に入り",house_add_path(@house),method: :post %>
-      <% else %>
+      <% elsif %>
         <%= link_to "お気に入り解除",house_add_path(@house),method: :delete %>
+      <% else %>
       <% end %>
       <%= link_to "お問い合わせ",contact_path, class: 'btn btn-warning'%>
       <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
