@@ -24,11 +24,14 @@
         <h2>設備：<%= @house.service %></h2>
         <h2>ハッシュタグ：<%= @house.hashtag %></h2>
       </div>
-      <% if !Favorite.exists?(user_id:current_user.id,house_id: @house.id) %>
-        <%= link_to "お気に入り",house_add_path(@house),method: :post %>
-      <% elsif %>
-        <%= link_to "お気に入り解除",house_add_path(@house),method: :delete %>
+      <% if unless current_user>
+        <% if !Favorite.exists?(user_id:current_user.id,house_id: @house.id) %>
+          <%= link_to "お気に入り",house_add_path(@house),method: :post %>
+        <% else%>
+          <%= link_to "お気に入り解除",house_add_path(@house),method: :delete %>
+        <% end %>
       <% else %>
+      
       <% end %>
       <%= link_to "お問い合わせ",contact_path, class: 'btn btn-warning'%>
       <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
