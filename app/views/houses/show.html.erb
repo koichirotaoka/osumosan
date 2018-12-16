@@ -32,6 +32,8 @@
         <% end %>
         <%= link_to "お問い合わせ",contact_path, class: 'btn btn-warning'%>
         <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
+      <% elsif vendor_signed_in? %>
+        <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
       <% else %>
         <%= link_to "お問い合わせ",contact_path, class: 'btn btn-warning'%>
         <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
