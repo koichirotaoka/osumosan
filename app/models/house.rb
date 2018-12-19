@@ -1,13 +1,15 @@
 class House < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
-  validates :deposit, presence: true, length: { maximum: 255 }
-  validates :gratuityfee, presence: true, length: { maximum: 255 }
+  validates :image, presence: true, length: { maximum: 255 }
   validates :location, presence: true, length: { maximum: 255 }
-  validates :access, presence: true, length: { maximum: 255 }
-  validates :area, presence: true, length: { maximum: 255 }
-  validates :age, presence: true, length: { maximum: 255 }
-  validates :layout, presence: true, length: { maximum: 255 }
-  validates :lightning, presence: true, length: { maximum: 255 }
+  validates :access, presence: true, length: { maximum: 20 }
+  validates :rent, numericality: { only_integer: true }, length: { maximum: 8 }
+  validates :deposit, numericality: { only_integer: true }, length: { maximum: 6 }
+  validates :gratuityfee, numericality: { only_integer: true }, length: { maximum: 6 }
+  validates :area, numericality: { only_integer: true }, length: { in: 1..100 }  
+  validates :age, numericality: { only_integer: true }, length: { in: 1..100 }  
+  validates :layout, presence: true, length: { maximum: 5 }
+  validates :lightning, presence: true, length: { maximum: 10 }
   validates :service, presence: true, length: { maximum: 255 }
   validates :hashtag, presence: true, length: { maximum: 255 }
   

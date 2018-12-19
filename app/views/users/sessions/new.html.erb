@@ -1,4 +1,4 @@
-<h2>Log in(一般)</h2>
+<h2>ログイン(一般)</h2>
 
 <%= form_for(resource, as: @user, url: session_path(@user)) do |f| %>
   <div class="field">
@@ -11,16 +11,9 @@
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
   </div>
+  <%= link_to "一覧画面へ", houses_path %>
 <% end %>
 
-<%= render "devise/shared/links" %>

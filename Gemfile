@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 #追加
+gem 'rails-i18n'
 gem "ransack"
 gem 'devise'
 gem 'letter_opener_web'

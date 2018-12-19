@@ -1,6 +1,21 @@
 ---
 ja:
   activerecord:
+    attributes:
+      house:
+        title: 物件名
+        image: 写真
+        rent: 家賃
+        deposit: 敷金
+        gratuityfee: 礼金
+        location: 所在地
+        access: 最寄り駅
+        area: 専有面積
+        age: 築年数
+        layout: 間取り
+        lightning: 主要採光面
+        service: 設備
+        hashtag: ハッシュタグ
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
