@@ -22,44 +22,129 @@
         </div>
       <% end %>
       <h1>新規物件投稿画面</h1>
-      <%= form.label :"物件名" %>：
-      <%= form.text_field :title, :placeholder => "(例)GA technologies"  %>
+      <div class="rent clearfix">
+        <div class="rentlabel">
+          <%= form.label :"物件名：" %>
+        </div>
+        <div class="renttext">
+          <%= form.text_field :title, :placeholder => "(例)GA technologies"  %>
+        </div>
+      </div>
       <br />
-      <%= image_tag(@house.image.url) if @house.image.url %>
-      <%= form.file_field :image %>
+      <div class="image clearfix">
+        <div class="imagelabel">
+          <%= form.label :"写真：" %>
+        </div>
+        <div class="imagetext">
+          <%= image_tag(@house.image.url) if @house.image.url %>
+          <%= form.file_field :image %>
+        </div>
+      </div>
       <br />
-      <%= form.label :"所在地" %>：
-      <%= form.text_field :location, :placeholder => "東京都" %>
+      <div class="location clearfix">
+        <div class="locationlabel">
+          <%= form.label :"所在地：" %>
+        </div>
+        <div class="locationtext">
+          <%= form.text_field :location, :placeholder => "(例)東京都"  %>
+        </div>
+      </div>
       <br />
-      <%= form.label :"最寄り駅" %>：
-      <%= form.text_field :access, :placeholder => "(例)恵比寿" %>
+      <div class="access clearfix">
+        <div class="accesslabel">
+          <%= form.label :"最寄り駅：" %>
+        </div>
+        <div class="accesstext">
+          <%= form.text_field :access, :placeholder => "(例)恵比寿"  %>
+        </div>
+        <div class="accesstext">駅</div>
+      </div>
       <br />
-      <%= form.label :"家賃" %>：
-      <%= form.text_field :rent, :placeholder => "(例)100000" %>円
+      <div class="rent clearfix">
+        <div class="rentlabel">
+          <%= form.label :"家賃：" %>
+        </div>
+        <div class="renttext">
+          <%= form.text_field :rent, :placeholder => "(例)100000"  %>
+        </div>
+        <div class="renttext">円</div>
+      </div>
       <br />
-      <%= form.label :"敷金" %>：
-      <%= form.text_field :deposit, :placeholder => "(例)10000" %>円
+      <div class="deposit clearfix">
+        <div class="depositlabel">
+          <%= form.label :"敷金：" %>
+        </div>
+        <div class="deposittext">
+          <%= form.text_field :deposit, :placeholder => "(例)100000"  %>
+        </div>
+        <div class="deposittext">円</div>
+      </div>
       <br />
-      <%= form.label :"礼金" %>：
-      <%= form.text_field :gratuityfee, :placeholder => "(例)100000" %>円
+      <div class="gratuityfee clearfix">
+        <div class="gratuityfeelabel">
+          <%= form.label :"礼金：" %>
+        </div>
+        <div class="gratuityfeetext">
+          <%= form.text_field :gratuityfee, :placeholder => "(例)100000"  %>
+        </div class="gratuityfeetext">円<div>
+        </div>
+      </div>
       <br />
-      <%= form.label :"専有面積" %>：
-      <%= form.text_field :area, :placeholder => "(例)50" %>ｍ²
+       <div class="area clearfix">
+        <div class="arealabel">
+          <%= form.label :"専有面積：" %>
+        </div>
+        <div class="areatext">
+          <%= form.text_field :area, :placeholder => "(例)50"  %>
+        </div>
+        <div class="areatext">ｍ²</div>
+      </div>
       <br />
-      <%= form.label :"築年数" %>:
-      <%= form.text_field :age, :placeholder => "(例)5" %>年
+      <div class="age clearfix">
+        <div class="agelabel">
+          <%= form.label :"築年数：" %>
+        </div>
+        <div class="agetext">
+          <%= form.text_field :age, :placeholder => "(例)5"  %>
+        </div>
+        <div class="agetext">年</div>
+      </div>
       <br />
-      <%= form.label :"間取り" %>：
-      <%= form.text_field :layout, :placeholder => "(例)1LDK"%>
+      <div class="layout clearfix">
+        <div class="layoutlabel">
+          <%= form.label :"間取り：" %>
+        </div>
+        <div class="layouttext">
+          <%= form.text_field :layout, :placeholder => "(例)1LDK"  %>
+        </div>
+      </div>
       <br />
-      <%= form.label :"主要採光面" %>：
-      <%= form.text_field :lightning, :placeholder => "(例)南向き" %>
+      <div class="lightning clearfix">
+        <div class="lightninglabel">
+          <%= form.label :"主要採光面：" %>
+        </div>
+        <div class="lightningtext">
+          <%= form.text_field :lightning, :placeholder => "(例)南向き"  %>
+        </div>
+      </div>
       <br />
-      <%= form.label :"設備" %><br />
-      <%= form.text_area :service, :placeholder => "(例)バス・トイレ別" %>
+       <div class="service clearfix">
+        <div class="servicelabel">
+          <%= form.label :"設備：" %>
+        </div>
+        <div class="servicetext">
+          <%= form.text_field :service, :placeholder => "(例)バス・トイレ別"  %>
+        </div>
+      </div>
       <br />
-      <%= form.label :"ハッシュタグ" %><br />
-      <%= form.text_area :hashtag, :placeholder => "(例)#おしゃれ" %>
+      <div class="hashtag clearfix">
+        <div class="hashtaglabel">
+          <%= form.label :"ハッシュタグ：" %>
+        </div>
+        <div class="hashtagtext">
+          <%= form.text_field :hashtag, :placeholder => "(例)#おしゃれ"  %>
+        </div>
+      </div>
       <br />
       <%= form.submit  "投稿する" , class: 'btn btn-success'%>
     <% end %>

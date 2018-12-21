@@ -9,7 +9,7 @@ ja:
         remember_me: 次回から自動的にログイン
       vendor:
         email: メールアドレス
-        name: 氏名
+        name: 企業名
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン

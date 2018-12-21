@@ -10,7 +10,7 @@
     <h1>確認画面</h1><br>
     <h2>以下の内容でよろしいでしょうか？</h2><br>
 
-    <%= form_with(model: @house, url: houses_path, local: true, method: 'post') do |form| %>
+    <%= form_with(model: @house, url: houses_path, local: true) do |form| %>
       <h3><%= form.hidden_field :title %></h3>
       <h3>物件名：<%= @house.title %></h3>
       <br>

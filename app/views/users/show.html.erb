@@ -1,7 +1,8 @@
 <div class="top-wrapper">
-    <div class="container"></div>
-    <h1><%= @user.name %></h1>
-    <h2> <%= @user.email %></h2>
-    </div>
+  <div class="container">
+    <h1>Myページ</h1>
+    <p>名前：<%= @user.name %></p>
+    <p> メール：<%= @user.email %></p>
     <%= link_to "一覧画面へ", houses_path %>
+  </div>
 </div>

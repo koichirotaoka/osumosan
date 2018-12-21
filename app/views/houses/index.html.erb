@@ -41,10 +41,10 @@
             <%= f.number_field :area_lteq, :placeholder => "(例)50" %>ｍ²
             <br />
             築年数：
-            <%= f.label :age_gteq, "下限", :placeholder => "(例)5" %>
-            <%= f.number_field :age_gteq %>円
+            <%= f.label :age_gteq, "下限" %>
+            <%= f.number_field :age_gteq, :placeholder => "(例)5" %>年
             <%= f.label :age_lteq, "上限" %>
-            <%= f.number_field :age_lteq, :placeholder => "(例)10" %>円
+            <%= f.number_field :age_lteq, :placeholder => "(例)10" %>年
             <br />
             <%= f.label :layout_start, "間取り" %>：
             <%= f.search_field :layout_start, :placeholder => "(例)１LDK" %>

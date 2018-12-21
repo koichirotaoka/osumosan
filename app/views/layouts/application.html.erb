@@ -12,9 +12,10 @@
     <header>
       <div class="contain">
         <div class="header-left">
-              <div class="logo">
-                <span class="spellchild"><h1>お住もうさん</h1></span>
-              </div>
+          <div class="logo">
+            <span class="spellchild">お住もうさん</span>
+            <p><%= image_tag('/979003.jpg', :size => "30x30") %></p>
+          </div>
         </div>
         <div class="header-right clearfix">
           <% if user_signed_in? %>
@@ -33,6 +34,9 @@
             <div class="change">
               <%= link_to "プロフィール変更", edit_user_registration_path, class: "btn btn-secondary" %>
             </div>
+            <div class="logined">
+              <p>ログイン中</p>
+            </div>
           <% elsif vendor_signed_in?%>
             <div class="logout">
               <%= link_to "ログアウト", destroy_vendor_session_path, class: "btn btn-secondary", method: :delete %>
@@ -49,6 +53,9 @@
             <div class="change">
               <%= link_to "プロフィール変更", edit_vendor_registration_path, class: "btn btn-secondary" %>
             </div>
+            <div class="logined">
+              <p>ログイン中</p>
+            </div>
           <%else%>
             <div class="login">
               <%= link_to "ログイン(不動産業者専用)", new_vendor_session_path, class: "btn btn-secondary" %>
@@ -63,13 +70,8 @@
               <%= link_to "新規登録(一般)",new_user_registration_path, class: "btn btn-secondary"%>
             </div>
           <% end %>
-          
-           
     </header>
-    
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+   
     <%= yield %>
-    
   </body>
 </html>

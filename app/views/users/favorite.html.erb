@@ -3,19 +3,19 @@
   <h1>お気に入り一覧</h1>
     <% @favorite_houses.each do |favorite| %>
       <br>
-      <h1><%= favorite.title %></h1>
+      <h1>物件名：<%= favorite.title %></h1>
       <%= image_tag(favorite.image.url, :size => "500x500") %>
-      <h2>家賃<span><%= favorite.rent %></span></h2>
-      <h2>敷金<span><%= favorite.deposit %></span></h2>
-      <h2>礼金<span><%= favorite.gratuityfee %></span></h2>
-      <h2>県庁所在地<span><%= favorite.location %></span></h2>
-      <h2>駅<span><%= favorite.access %></span></h2>
-      <h2>専有面積<span><%= favorite.area %></span></h2>
-      <h2>築年数<span><%= favorite.age %></span></h2>
-      <h2>間取り<span><%= favorite.layout %></span></h2>
-      <h2>主要採光面<span><%= favorite.lightning %></span></h2>
-      <h2>設備<span><%= favorite.service %></span></h2>
-      <h2>ハッシュタグ<span><%= favorite.hashtag %></span></h2>
+      <h2>所在地：<span><%= favorite.location %></span></h2>
+      <h2>最寄り駅：<span><%= favorite.access %>駅</span></h2>
+      <h2>家賃：<span><%= favorite.rent %>円</span></h2>
+      <h2>敷金：<span><%= favorite.deposit %>円</span></h2>
+      <h2>礼金：<span><%= favorite.gratuityfee %>円</span></h2>
+      <h2>専有面積：<span><%= favorite.area %>ｍ²</span></h2>
+      <h2>築年数：<span><%= favorite.age %>年</span></h2>
+      <h2>間取り：<span><%= favorite.layout %></span></h2>
+      <h2>主要採光面：<span><%= favorite.lightning %></span></h2>
+      <h2>設備：<span><%= favorite.service %></span></h2>
+      <h2>ハッシュタグ：<span><%= favorite.hashtag %></span></h2>
       <br>
     <% end %>
     <%= link_to "一覧画面へ", houses_path %>
