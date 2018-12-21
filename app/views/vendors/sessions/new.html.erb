@@ -1,6 +1,7 @@
-<h2>ログイン(不動産業者用)</h2>
-
 <%= form_for(resource, as: @vendor, url: session_path(@vendor)) do |f| %>
+  <br><br><br>
+  <h1>ログイン(不動産業者用)</h1>
+  <br>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
