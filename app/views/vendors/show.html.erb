@@ -1,7 +1,8 @@
 <div class="top-wrapper">
-    <div class="container"></div>
-      <h1><%= @vendor.name %></h1>
-      <h2> <%= @vendor.email %></h2>
-    </div>
+  <div class="container">
+    <h1>Myページ</h1>
+    <p>企業名：<%= @vendor.name %></p>
+    <p> メール：<%= @vendor.email %></p>
     <%= link_to "一覧画面へ", houses_path %>
+  </div>
 </div>

@@ -1,8 +1,7 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
-  before_action :login_check_user, only:[:edit, :destroy, :update]
-  before_action :login_check_vendor, only:[:edit, :destroy, :update]
- 
+  before_action :login_check_current_vendor, only: [:edit, :destroy]
+  
   def index
     @q        = House.search(params[:q])
     @houses = @q.result(distinct: true)
@@ -71,6 +70,13 @@ class HousesController < ApplicationController
   
   def login_check_vendor
     return redirect_to new_vendor_session_path unless vendor_signed_in?
+  end
+  
+  def login_check_current_vendor
+    unless @house.vendor_id==current_vendor.id
+      flash[:notice] = '失敗しました'
+      return redirect_to new_vendor_session_path
+    end
   end
   
 end

@@ -1,5 +1,5 @@
 class VendorsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_vendor!, only: [:show, :edit, :update, :destroy]
   
   def index
     @vendors =Vendor.all

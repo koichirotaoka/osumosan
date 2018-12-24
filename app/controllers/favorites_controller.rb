@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
-  def create
+  
+def create
     user=current_user
     house=House.find(params[:house_id])
     if Favorite.create(user_id: user.id,house_id: house.id)
@@ -7,7 +8,7 @@ class FavoritesController < ApplicationController
     else
       redirect_to root_url
     end
-  end
+end
 
   def destroy
     user=current_user

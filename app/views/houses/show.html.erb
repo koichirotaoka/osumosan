@@ -26,16 +26,16 @@
       </div>
       <% if user_signed_in? %>
         <% if !Favorite.exists?(user_id:current_user.id,house_id: @house.id) %>
-          <%= link_to "お気に入り",house_add_path(@house),method: :post %>
+          <%= link_to "お気に入りする",house_add_path(@house),method: :post, class: 'btn btn-danger' %>
         <% else %>
-          <%= link_to "お気に入り解除",house_add_path(@house),method: :delete %>
+          <%= link_to "お気に入り済み",house_add_path(@house),method: :delete, class: 'btn btn-primary' %>
         <% end %>
-        <%= link_to "お問い合わせ",contact_path, class: 'btn btn-warning'%>
+        <%= link_to "お問い合わせ",contact_path, class: 'btn btn-success'%>
         <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
       <% elsif vendor_signed_in? %>
         <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
       <% else %>
-        <%= link_to "お問い合わせ",contact_path, class: 'btn btn-warning'%>
+        <%= link_to "お問い合わせ",contact_path, class: 'btn btn-success'%>
         <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
       <% end %>
   </div>

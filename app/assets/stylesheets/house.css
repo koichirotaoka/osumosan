@@ -1,0 +1,218 @@
+article, div, footer, header, nav, section {
+  padding: 0;
+  position: relative;
+  }
+
+body {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  width: 100%;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 10; }
+
+.contain {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  -webkit-transition: height .2s ease-in-out;
+  transition: height .2s ease-in-out;
+  height: 60px; }
+
+.header-left {
+  float: left; }
+
+.fa-large {
+  font-size: 50px;
+  float: left; }
+
+.vertical {
+  background-color: #262626;
+  height: 50px;
+  margin: 0 16px;
+  width: 1px;
+  float: left; }
+
+.logo {
+  float: left; }
+
+.logo p {
+  padding: 20px;
+  float: left; }
+
+.spell {
+  float: left; }
+
+.spellchild {
+  font-size: 35px;
+  text-align: center;
+  float: left;
+  padding-top: 10px; }
+
+.header-right {
+  float: right;
+  width: 1000px; }
+
+.mypage {
+  margin: 10px 20px;
+  float: right;
+  text-align: center; }
+
+.logout {
+  margin: 10px 20px;
+  float: right;
+  text-align: center; }
+
+.login {
+  margin: 20px 20px;
+  float: right;
+  text-align: center; }
+
+.logined {
+  padding-top: 5px;
+  margin: 20px 20px;
+  float: right;
+  text-align: center; }
+
+.list {
+  margin: 10px 20px;
+  float: right;
+  text-align: center; }
+
+.favorite {
+  margin: 10px 20px;
+  float: right;
+  text-align: center; }
+
+.registration {
+  margin: 10px 20px;
+  text-align: center;
+  float: right; }
+
+.login {
+  margin: 10px 20px;
+  text-align: center;
+  float: right; }
+
+.search {
+  margin: 10px 20px;
+  text-align: center;
+  float: right; }
+
+.change {
+  margin: 10px 20px;
+  text-align: center;
+  float: right; }
+
+.new {
+  margin: 10px 20px;
+  text-align: center;
+  float: right; }
+
+.top-wrapper {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  padding: 100px 0 100px 0;
+  background-size: cover; }
+
+.container {
+  text-align: center;
+  width: 100%;
+  width: cover;
+  padding: 100 px 15px;
+  margin: 0 auto; }
+
+.title {
+  display: table-cell;
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+
+.location{
+  width: 100%;
+  float: left; }
+
+.access{
+  width: 100%;
+  float: left; }
+
+.rent{
+  width: 100%;
+  float: left; }
+
+.deposit{
+  width: 100%;
+  float: left; }
+
+.gratuityfee {
+  width: 100%;
+  float: left; }
+  
+.area {
+  float: left;
+  width: 100%;}
+
+.age {
+  width: 100%;
+  float: left; }
+
+.layout {
+  width: 100%;
+  float: left; }
+
+.lightning{
+  width: 100%;
+  float: left; }
+  
+.service {
+  width: 100%;
+  float: left; }
+
+.hashtag {
+  width: 100%;
+  float: left; }
+
+.image{
+  display: block;
+  width: 100%;
+  float: left;
+  text-align:center;
+  margin:auto;
+}
+
+ul{
+  text-align:center;
+  width: 100%;
+  margin:auto;
+  list-style:none;
+}
+li{
+  text-align:center;
+  width: 100%;
+  margin:auto;
+}
+
+.field_with_errors{
+   display: inline-block;
+}
+input{
+  display: inline-block;
+}
+th{
+  text-align:center;
+}
+
+
+
+
+/*# sourceMappingURL=house.css.map */

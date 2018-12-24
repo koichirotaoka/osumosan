@@ -209,8 +209,18 @@ header{
   float: left;
 }
 
+.field_with_errors{
+  display: inline-block;
+}
 
+input{
+  display: inline-block;
+}
 
+.like-btn {
+  color: #8899a6;
+}
 
-
-
+.like-btn-unlike {
+  color: #ff2581;
+}

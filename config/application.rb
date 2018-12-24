@@ -16,6 +16,9 @@ module Osumosan
     #追加
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      %Q(#{html_tag}).html_safe
+    end
 
     
     config.i18n.default_locale = :ja
