@@ -211,6 +211,9 @@ input{
 th{
   text-align:center;
 }
+.error_explanation h2{
+  display: none;
+}
 
 
 

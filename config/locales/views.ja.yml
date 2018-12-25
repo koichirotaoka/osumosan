@@ -1,11 +1,13 @@
 ja:
-  devise:    
+  devise:
     sessions:
       new:
         log_in: 'ログイン'
     registrations:
       new:
         sign_up: 'サインアップ'
+      edit:
+        password:'新しいパスワード'
     shared:
       links:
         log_in: 'ログイン'

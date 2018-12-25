@@ -1,8 +1,20 @@
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <br><br><br>
+  
+  <% if resource.errors.any? %>
+      <h2><%= resource.errors.count %>ヶ所記載に誤りがございます。</h2>
+      <h3>下記の指示に従って、訂正をよろしくお願いいたします。</h3>
+  <% end %>
+  
+  <br><br><br>
+  
   <%= devise_error_messages! %>
   
   <br><br><br>
+  
   <h1>編集画面</h1>
+  
   <br>
   
    <div class="field">
@@ -25,13 +37,13 @@
   
    <div class="field">
     <%= f.label :current_password %><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password, autocomplete: "new-password" %>
   </div>
   
   <br />
   
   <div class="field">
-    新しい<%= f.label :password %>(※最小6文字)<br />
+    <%= f.label :password %>(※最小6文字)<br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
   
