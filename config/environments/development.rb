@@ -36,6 +36,19 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'osumosan-koichirotaoka.c9users.io' , port: 80}
   config.web_console.whitelisted_ips = '0.0.0.0/0'
   config.action_mailer.delivery_method = :letter_opener
+  
+  
+  config.action_mailer.default_url_options = { host: 'sleepy-basin-62819.herokuapp.com' }
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: "heroku.com",
+    address: "smtp.SendGrid.net",
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 
 
 end
