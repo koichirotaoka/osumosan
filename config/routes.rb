@@ -39,4 +39,6 @@ Rails.application.routes.draw do
   ##### 問い合わせ完了画面
   post 'contact/thanks' => 'contact#thanks'
   
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  
 end

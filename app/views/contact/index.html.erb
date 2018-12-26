@@ -18,17 +18,17 @@
        
         <table class="table">
           <tr>
-            <th>名前<span class="text-danger"> (必須)</span></th>
+            <th>お名前<span class="text-danger"> (必須)</span></th>
             <td><%= f.text_field :name, :size=>"150" %></td>
           </tr>
       
           <tr>
             <th>メールアドレス<span class="text-danger"> (必須)</span></th>
-            <td><%= f.text_field :email, :size=>"150" %></td>
+            <td><%= f.text_field :email, :size=>"150", :value=>current_user.email %></td>
           </tr>
       
           <tr>
-            <th>問い合わせ内容 (必須)</th>
+            <th>問い合わせ内容 <span class="text-danger"> (必須)</span></th>
             <td><%= f.text_area :message, :size=>"150" %></td>
           </tr>
       

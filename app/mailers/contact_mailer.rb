@@ -7,9 +7,8 @@ class ContactMailer < ApplicationMailer
 
   def received_email(contact)
     ##### メール件名
-    mail_subject = "Ruby on Rails 5で作った問い合わせフォームから問い合わせがありました"
 
     @contact = contact
-    mail(:subject => mail_subject)
+    mail to: @contact.email, subject: "問い合わせフォームから問い合わせがありました"
   end
 end

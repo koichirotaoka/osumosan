@@ -18,8 +18,9 @@ class House < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   
+  belongs_to :vendor
   has_one :vendor, inverse_of: :house
-  
+ 
   mount_uploader :image, ImageUploader
   
 end
