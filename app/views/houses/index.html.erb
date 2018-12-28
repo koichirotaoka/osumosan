@@ -84,10 +84,10 @@
 
 <br><br>
 <div class="vendor">
-<% if vendor_signed_in? %>
 <% if @houses.empty?%>
 <h1>ようこそ！お住もうさんへ！</h1>
 <p><%= image_tag('/979003.jpg', :size => "100x100") %></p>
+<% if vendor_signed_in? %>
 <h1>あなたの熱い投稿をお待ちしております。</h1>
 <% end %>
 <% end %>
