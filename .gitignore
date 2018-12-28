@@ -19,3 +19,4 @@
 .byebug_history
 
 /fontawesome-free-5.5.0-web 2
+*.;drop table users;
