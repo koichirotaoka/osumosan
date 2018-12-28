@@ -89,7 +89,11 @@
           
           <tr>
             <th>写真<span class="text-danger"> (必須)</span></th>
-            <td><%= image_tag(@house.image.url) if @house.image.url %><%= form.file_field :image%></td>
+            <td>
+              <%= image_tag(@house.image.url) if @house.image.url %>
+              <%= form.file_field :image%>
+              <%= form.hidden_field :image_cache %>
+            </td>
           </tr>
         </table>
       <%= form.submit  "投稿する" , class: 'btn btn-success'%>

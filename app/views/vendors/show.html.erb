@@ -1,8 +1,94 @@
-<div class="top-wrapper">
-  <div class="container">
-    <h1>Myページ</h1>
-    <p>企業名：<%= @vendor.name %></p>
-    <p> メール：<%= @vendor.email %></p>
-    <%= link_to "一覧画面へ", houses_path %>
-  </div>
+<head>
+    <title>Osumosan</title>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<p class="notice"><%= notice %></p>
+<% @houses.each do |house| %>
+  <div class="list_property">
+    <h4><%= house.title %></h4>
+    <%= image_tag(house.image.url, :size => "216x162", :class => 'img') %>
+    <ul>
+			<li>
+				<dl>
+					<dt>所在地</dt>
+					<dd><%= house.location %></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>最寄り駅</dt>
+					<dd><%= house.location %>駅</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>築年数</dt>
+					<dd><%= house.age %>年</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>主要採光面</dt>
+					<dd><%= house.lightning %></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>設備</dt>
+					<dd><%= house.service %></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>ハッシュタグ</dt>
+					<dd><%= house.hashtag %></dd>
+				</dl>
+			</li>
+		</ul>
+		<div>
+		  <ol>
+		    <li>賃料</li>
+				<li>敷金</li>
+				<li>礼金</li>
+				<li>間取り</li>
+				<li>専有面積</li>
+				<li>詳細</li>
+				<% if vendor_signed_in? %>
+          <% if house.vendor_id == current_vendor.id %>
+            <li>編集</li>
+				    <li>削除</li>
+          <% end %>
+        <% end %>
+        </ol>
+					<ul>
+						<li><strong><%= house.rent %>円</strong></li>
+						<li><%= house.deposit %>円</li>
+						<li><%= house.gratuityfee %>円</li>
+						<li><%= house.layout %></li>
+						<li><%= house.area %>ｍ²</li>
+						<li><%= link_to '詳細', house_path(house.id) %></li>
+    				<% if vendor_signed_in? %>
+              <% if house.vendor_id == current_vendor.id %>
+                <li><%= link_to '編集', edit_house_path(house.id) %></li>
+                <li><%= link_to '削除', house_path(house.id), method: :delete ,data: { confirm: '本当に削除して宜しいいでしょうか？' } %></li>
+              <% end %>
+            <% end %>
+    			</ul>
+    </div>
+	</div>
+<% end %>
+
+<br><br>
+<br><br>
+<div class="vendor">
+<% if @houses.empty?%>
+<h1>ようこそ！お住もうさんへ！</h1>
+<p><%= image_tag('/979003.jpg', :size => "100x100") %></p>
+<% if vendor_signed_in? %>
+<h1>あなたの熱い投稿をお待ちしております。</h1>
+<% end %>
+<% end %>
 </div>

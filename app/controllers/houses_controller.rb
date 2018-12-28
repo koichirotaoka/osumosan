@@ -5,9 +5,6 @@ class HousesController < ApplicationController
   def index
     @q        = House.search(params[:q])
     @houses = @q.result(distinct: true).order(created_at: :desc)
-    if vendor_signed_in?
-      @houses = current_vendor.houses.order(created_at: :desc)
-    end
   end  
   
   def new

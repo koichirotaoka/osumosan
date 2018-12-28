@@ -1,6 +1,5 @@
 class House < ApplicationRecord
-  validates :title, presence: true, length: { maximum: 255 }
-  validates :image, presence: true
+  validates :title, presence: true, length: { maximum: 255 
   validates :location, presence: true, length: { maximum: 255 }
   validates :access, presence: true, length: { maximum: 20 }
   validates :rent, numericality: { only_integer: true }, length: { maximum: 8 }
@@ -12,6 +11,7 @@ class House < ApplicationRecord
   validates :lightning, presence: true, length: { maximum: 10 }
   validates :service, presence: true, length: { maximum: 255 }
   validates :hashtag, presence: true, length: { maximum: 255 }
+  validates :image, presence: true
   
   #has_many :favorites
   #has_many :users, through: :favorites

@@ -19,7 +19,9 @@ class VendorsController < ApplicationController
   end
   
   def show
-    @vendor = Vendor.find(params[:id])
+    if vendor_signed_in?
+      @houses = current_vendor.houses.order(created_at: :desc)
+    end
   end
   
   private
