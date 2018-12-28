@@ -26,7 +26,7 @@ class HousesController < ApplicationController
     @house = House.new(house_params)
     @house.vendor_id = current_vendor.id 
     if @house.save
-      redirect_to houses_path, notice: 'Complete！'
+      redirect_to houses_path, notice: '投稿しました！'
     else
       render 'new'
     end
