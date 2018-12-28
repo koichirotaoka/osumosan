@@ -1,5 +1,5 @@
 class House < ApplicationRecord
-  validates :title, presence: true, length: { maximum: 255 
+  validates :title, presence: true, length: { maximum: 255 }
   validates :location, presence: true, length: { maximum: 255 }
   validates :access, presence: true, length: { maximum: 20 }
   validates :rent, numericality: { only_integer: true }, length: { maximum: 8 }
