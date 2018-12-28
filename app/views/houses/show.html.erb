@@ -5,42 +5,80 @@
     <link href="./font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
  </head>
-
-<div class="top-wrapper">
-  <div class="container">
-      <div class="content">
-        <h1>詳細画面</h1>
-        <h2>物件名：<%= @house.title %></h2>
-        <%= image_tag @house.image.url, :size => "500x500"%>
-        <h2>所在地：<%= @house.location %></h2>
-        <h2>最寄り駅：<%= @house.access %>駅</h2>
-        <h2>家賃：<%= @house.rent %>円</h2>
-        <h2>敷金：<%= @house.deposit %>円</h2>
-        <h2>礼金：<%= @house.gratuityfee %>円</h2>
-        <h2>専有面積：<%= @house.area %>ｍ²</h2>
-        <h2>築年数：<%= @house.age %>年</h2>
-        <h2>間取り：<%= @house.layout %></h2>
-        <h2>主要採光面：<%= @house.lightning %></h2>
-        <h2>設備：<%= @house.service %></h2>
-        <h2>ハッシュタグ：<%= @house.hashtag %></h2>
-      </div>
-      <% if user_signed_in? %>
-        <% if !Favorite.exists?(user_id:current_user.id,house_id: @house.id) %>
-          <%= link_to "お気に入りする",house_add_path(@house),method: :post, class: 'btn btn-danger' %>
-        <% else %>
-          <%= link_to "お気に入り済み",house_add_path(@house),method: :delete, class: 'btn btn-primary' %>
+ 
+ <div class="show">
+    <h4><%= @house.title %></h4>
+    <%= image_tag(@house.image.url, :size => "216x162", :class => 'img') %>
+    <ul>
+			<li>
+				<dl>
+					<dt>所在地</dt>
+					<dd><%= @house.location %></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>最寄り駅</dt>
+					<dd><%= @house.location %>駅</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>築年数</dt>
+					<dd><%= @house.age %>年</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>主要採光面</dt>
+					<dd><%= @house.lightning %></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>設備</dt>
+					<dd><%= @house.service %></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>ハッシュタグ</dt>
+					<dd><%= @house.hashtag %></dd>
+				</dl>
+			</li>
+		</ul>
+		<div>
+		  <ol>
+		    <li>賃料</li>
+				<li>敷金</li>
+				<li>礼金</li>
+				<li>間取り</li>
+				<li>専有面積</li>
+        <% if user_signed_in? %>
+				    <li>お気に入り</li>
+				    <li>問い合わせ</li>
         <% end %>
-        <%= link_to "お問い合わせ",contact_path, class: 'btn btn-success'%>
-        <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
-      <% elsif vendor_signed_in? %>
-        <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
-      <% else %>
-        <%= link_to "お問い合わせ",contact_path, class: 'btn btn-success'%>
-        <%= link_to "もどる", houses_path , class: 'btn btn-warning'%>
-      <% end %>
-  </div>
-</div>
-  
+        </ol>
+					<ul>
+						<li><strong><%= @house.rent %>円</strong></li>
+						<li><%= @house.deposit %>円</li>
+						<li><%= @house.gratuityfee %>円</li>
+						<li><%= @house.layout %></li>
+						<li><%= @house.area %>ｍ²</li>
+            <% if user_signed_in? %>
+              <% if !Favorite.exists?(user_id:current_user.id,house_id: @house.id) %>
+                <li><%= link_to "お気に入りする",house_add_path(@house),method: :post %></li>
+              <% else %>
+                <li><%= link_to "お気に入り済み",house_add_path(@house),method: :delete %></li>
+              <% end %>
+              <li><%= link_to "問い合わせ",contact_path %></li>
+            <% end %>
+    			</ul>
+    </div>
+      <br>
+    	<%= link_to "もどる", houses_path %>
+	</div>
+
  <script>
     $("#methods-test2").click(function(){
     $(this).button('dispose').removeAttr('data-toggle');

@@ -7,48 +7,117 @@
 </head>
 <div class="top-wrapper">
   <div class="container">
+    <div class="page-header">
     <h2>以下の内容でよろしいでしょうか？</h2><br>
+    
+      <%= form_with(model: @house, url: houses_path, local: true) do |form| %>
+        <table class="table">
+          <tr>
+            <th>物件名</th>
+            <td>
+              <%= form.hidden_field :title %>
+              <%= @house.title %>
+            </td>
+          </tr>
+          
+          <tr>
+            <th>所在地</th>
+            <td>
+              <%= form.hidden_field :location %>
+              <%= @house.location %>
+            </td>
+          </tr>
+          
+           <tr>
+            <th>最寄り駅</th>
+            <td>
+              <%= form.hidden_field :access %>
+              <%= @house.access %>駅
+            </td>
+          </tr>
+          
+          <tr>
+            <th>家賃</th>
+            <td>
+              <%= form.hidden_field :rent %>
+              <%= @house.rent %>円
+            </td>
+          </tr>
+          
+          <tr>
+            <th>敷金</th>
+            <td>
+              <%= form.hidden_field :deposit %>
+              <%= @house.deposit %>円
+            </td>
+          </tr>
+          
+          <tr>
+            <th>礼金</th>
+            <td>
+              <%= form.hidden_field :gratuityfee %>
+              <%= @house.gratuityfee %>円
+            </td>
+          </tr>
+          
+          <tr>
+            <th>専有面積</th>
+            <td>
+              <%= form.hidden_field :area %>
+              <%= @house.area %>ｍ²
+            </td>
+          </tr>
+          
+          <tr>
+            <th>間取り</th>
+            <td>
+              <%= form.hidden_field :layout %>
+              <%= @house.layout %>
+            </td>
+          </tr>
+          
+          <tr>
+            <th>間取り</th>
+            <td>
+              <%= form.hidden_field :layout %>
+              <%= @house.layout %>
+            </td>
+          </tr>
+          
+          <tr>
+            <th>主要採光面</th>
+            <td>
+              <%= form.hidden_field :lightning %>
+              <%= @house.lightning %>
+            </td>
+          </tr>
+          
+          <tr>
+            <th>設備</th>
+            <td>
+              <%= form.hidden_field :service %>
+              <%= @house.service %>
+            </td>
+          </tr>
+          
+          <tr>
+            <th>ハッシュタグ</th>
+            <td>
+              <%= form.hidden_field :hashtag%>
+              <%= @house.hashtag %>
+            </td>
+          </tr>
+          
+          <tr>
+            <th>写真</th>
+            <td>
+              <%= image_tag(@house.image.url, :size => "216x162") %>
+              <%= form.hidden_field :image_cache %>
+            </td>
+          </tr>
+          
+        </table>
 
-    <%= form_with(model: @house, url: houses_path, local: true) do |form| %>
-      <h3><%= form.hidden_field :title %></h3>
-      <h3>所在地：<%= @house.title %></h3>
-      <br>
-      <%= image_tag(@house.image.url, :size => "500x500") %>
-      <%= form.hidden_field :image_cache %>
-      <br>
-      <h3><%= form.hidden_field :location %></h3>
-      <h3>所在地：<%= @house.location %></h3>
-      <br>
-      <h3><%= form.hidden_field :access %></h3>
-      <h3>最寄り駅：<%= @house.access %>駅</h3>
-      <br>
-      <h3><%= form.hidden_field :rent %></h3>
-      <h3>家賃：<%= @house.rent %>円</h3>
-      <br>
-      <h3><%= form.hidden_field :deposit %></h3>
-      <h3>敷金：<%= @house.deposit %>円</h3>
-      <br>
-      <h3><%= form.hidden_field :gratuityfee %></h3>
-      <h3>礼金：<%= @house.gratuityfee %>円</h3>
-      <br>
-      <h3><%= form.hidden_field :area %></h3>
-      <h3>専有面積：<%= @house.area %>ｍ²</h3>
-      <br>
-      <h3><%= form.hidden_field :age %></h3>
-      <h3>築年数：<%= @house.age %>年</h3>
-      <br>
-      <h3><%= form.hidden_field :layout %></h3>
-      <h3>間取り：<%= @house.layout %></h3>
-      <br>
-      <h3><%= form.hidden_field :lightning %></h3>
-      <h3>主要採光面：<%= @house.lightning %></h3>
-      <br>
-      <h3><%= form.hidden_field :service %></h3>
-      <h3>設備：<%= @house.service %></h3>
-      <br>
-      <h3><%= form.hidden_field :hashtag %></h3>
-      <h3>ハッシュタグ：<%= @house.hashtag %></h3>
-      <br>
       <%= form.submit  "投稿する", class: 'btn btn-primary' %>
     <% end %>
     
@@ -67,6 +136,6 @@
       <h2><%= form.hidden_field :hashtag %></h2>
       <%= form.submit "もどる", name: 'back', class: 'btn btn-secondary'%>
     <% end %>
-    
+    </div>
   </div>
 </div>

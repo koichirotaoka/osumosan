@@ -4,8 +4,9 @@ class HousesController < ApplicationController
   
   def index
     @q        = House.search(params[:q])
-    @houses = @q.result(distinct: true)
-  end
+    @houses = @q.result(distinct: true).order(created_at: :desc)
+    @houses = current_vendor.houses.order(created_at: :desc) if vendor_signed_in?
+  end  
   
   def new
     @houses = House.all
@@ -57,7 +58,7 @@ class HousesController < ApplicationController
   private
   
   def house_params
-    params.require(:house).permit(:title, :rent, :deposit, :gratuityfee, :location, :access, :area, :age, :layout, :lightning, :service, :hashtag, :image, :image_cache, :vender_id)
+    params.require(:house).permit(:title, :rent, :deposit, :gratuityfee, :location, :access, :area, :age, :layout, :lightning, :service, :hashtag, :image, :image_cache, :vendor_id)
   end
   
   def set_house

@@ -1,7 +1,7 @@
 class ContactMailer < ApplicationMailer
     
   ##### 送信元アドレス
-  default from: "example@example.com"
+  default from: "osumosan@example.com"
   ##### 送信先アドレス
   default to: "********************@gmail.com"
 
@@ -9,6 +9,6 @@ class ContactMailer < ApplicationMailer
     ##### メール件名
 
     @contact = contact
-    mail to: @contact.email, subject: "問い合わせフォームから問い合わせがありました"
+    mail to: @contact.email, subject: "[お住もうさん]お問い合わせが完了しました"
   end
 end

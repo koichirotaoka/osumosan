@@ -1,105 +1,166 @@
 <head>
     <title>Osumosan</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<div class="top-wrapper">
-    <div class="container">
-      <ul class="row" style="list-style:none;">
-        <li class="col-md-8">
-          <h1>物件一覧</h1>
-          <% @houses.each do |house| %>
-            <div class="content" valign="top">
-              <h1>物件名：<%= house.title %></h1>
-              <%= image_tag(house.image.url, :size => "500x500") %>
-              <h2>所在地：<%= house.location %></h2>
-              <h2>最寄り駅：<%= house.access %>駅</h2>
-              <h2>家賃：<%= house.rent %>円</h2>
-              <h2>敷金：<%= house.deposit %>円</h2>
-              <h2>礼金：<%= house.gratuityfee %>円</h2>
-              <h2>専有面積：<%= house.area %>ｍ²</h2>
-              <h2>築年数：<%= house.age %>年</h2>
-              <h2>間取り：<%= house.layout %></h2>
-              <h2>主要採光面：<%= house.lightning %></h2>
-              <h2>設備：<%= house.service %></h2>
-              <h2>ハッシュタグ：<%= house.hashtag %></h2>
-              <div class="house-links">
-                <%= link_to '詳細', house_path(house.id), class: 'btn btn-success' %>
-                <% if vendor_signed_in? %>
-                  <% if house.vendor_id == current_vendor.id %>
-                    <%= link_to '編集', edit_house_path(house.id), class: 'btn btn-warning' %>
-                    <%= link_to '削除', house_path(house.id), method: :delete ,data: { confirm: '本当に削除して宜しいいでしょうか？' }, class: 'btn btn-danger' %>
-                  <% end %>
-                <% end %>
-                  
-              </div>
-            </div>
-            <br><br><br><br><br>
+<p class="notice"><%= notice %></p>
+
+<% @houses.each do |house| %>
+  <div class="list_property">
+    <h4><%= house.title %></h4>
+    <%= image_tag(house.image.url, :size => "216x162", :class => 'img') %>
+    <ul>
+			<li>
+				<dl>
+					<dt>所在地</dt>
+					<dd><%= house.location %></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>最寄り駅</dt>
+					<dd><%= house.location %>駅</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>築年数</dt>
+					<dd><%= house.age %>年</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>主要採光面</dt>
+					<dd><%= house.lightning %></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>設備</dt>
+					<dd><%= house.service %></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>ハッシュタグ</dt>
+					<dd><%= house.hashtag %></dd>
+				</dl>
+			</li>
+		</ul>
+		<div>
+		  <ol>
+		    <li>賃料</li>
+				<li>敷金</li>
+				<li>礼金</li>
+				<li>間取り</li>
+				<li>専有面積</li>
+				<li>詳細</li>
+				<% if vendor_signed_in? %>
+          <% if house.vendor_id == current_vendor.id %>
+            <li>編集</li>
+				    <li>削除</li>
           <% end %>
-        </li>
-        <li class="col-md-4">
-          <h1>検索画面</h1>
-          <%= search_form_for @q do |f| %>
-            <%= f.label :location_start, "所在地" %>：
-            <%= f.search_field :location_start, :placeholder => "(例)東京都" %>
-            <br />
-            <%= f.label :access_start, "最寄り駅" %>：
-            <%= f.search_field :access_start, :placeholder => "(例)恵比寿"  %>駅
-            <br />
-            家賃：
-            <%= f.label :rent_gteq, "下限" %>
-            <%= f.number_field :rent_gteq, :placeholder => "(例)500000"  %>円
-            <br />
-            　　　<%= f.label :rent_lteq, "上限" %>
-            <%= f.number_field :rent_lteq, :placeholder => "(例)100000"  %>円
-            <br />
-            敷金：
-            <%= f.label :deposit_gteq, "下限" %>
-            <%= f.number_field :deposit_gteq, :placeholder => "(例)0" %>円
-            <br />
-              　　　<%= f.label :deposit_lteq, "上限" %>
-            <%= f.number_field :deposit_lteq, :placeholder => "(例)10000" %>円
-            <br />
-            礼金
-            <%= f.label :gratuityfee_gteq, "下限" %>
-            <%= f.number_field :gratuityfee_gteq, :placeholder => "(例)0" %>円
-            <br />
-          　  　<%= f.label :gratuityfee_lteq, "上限" %>
-            <%= f.number_field :gratuityfee_lteq, :placeholder => "(例)10000" %>円
-            <br />
-            専有面積：
-            <%= f.label :area_gteq, "下限" %>
-            <%= f.number_field :area_gteq, :placeholder => "(例)30" %>ｍ²
-            <br />
-          　  　　　　<%= f.label :area_lteq, "上限" %>
-            <%= f.number_field :area_lteq, :placeholder => "(例)50" %>ｍ²
-            <br />
-            築年数：
-            <%= f.label :age_gteq, "下限" %>
-            <%= f.number_field :age_gteq, :placeholder => "(例)5" %>年
-            <br />
-          　　　　<%= f.label :age_lteq, "上限" %>
-            <%= f.number_field :age_lteq, :placeholder => "(例)10" %>年
-            <br />
-            <%= f.label :layout_start, "間取り" %>：
-            <%= f.search_field :layout_start, :placeholder => "(例)１LDK" %>
-            <br />
-            <%= f.label :lightning_start, "主要採光面" %>：
-            <%= f.search_field :lightning_start, :placeholder => "(例)南向き" %>
-            <br />
-            <%= f.label :service_start, "設備" %>：
-            <%= f.search_field :service_start, :placeholder => "(例)バス・トイレ別" %>
-            <br />
-            <%= f.label :hashtag_start, "ハッシュタグ" %>：
-            <%= f.search_field :hashtag_cont, :placeholder => "(例)#おしゃれ" %>
-            <br />
-            <%# 検索ボタン %>
-            <%= f.submit %>
-          <% end %>
-        </li>
-      </ul>
+        <% end %>
+        </ol>
+					<ul>
+						<li><strong><%= house.rent %>円</strong></li>
+						<li><%= house.deposit %>円</li>
+						<li><%= house.gratuityfee %>円</li>
+						<li><%= house.layout %></li>
+						<li><%= house.area %>ｍ²</li>
+						<li><%= link_to '詳細', house_path(house.id) %></li>
+    				<% if vendor_signed_in? %>
+              <% if house.vendor_id == current_vendor.id %>
+                <li><%= link_to '編集', edit_house_path(house.id) %></li>
+                <li><%= link_to '削除', house_path(house.id), method: :delete ,data: { confirm: '本当に削除して宜しいいでしょうか？' } %></li>
+              <% end %>
+            <% end %>
+    			</ul>
     </div>
+	</div>
+<% end %>
+
+<br><br>
+<div class="vendor">
+<% if vendor_signed_in? %>
+<% if @houses.empty?%>
+<h1>ようこそ！お住もうさんへ！</h1>
+<p><%= image_tag('/979003.jpg', :size => "100x100") %></p>
+<h1>あなたの熱い投稿をお待ちしております。</h1>
+<% end %>
+<% end %>
 </div>
+
+  <div class="side_search">
+    <h4>検索条件の絞り込み</h4>
+    <%= search_form_for @q do |f| %>
+    <dl>
+      <dd><%= f.label :location_start, "所在地" %></dd>
+      <dd><%= f.search_field :location_start, :placeholder => "(例)東京都" %></dd>
+    </dl>
+    <dl>
+      <dd><%= f.label :access_start, "最寄り駅" %></dd>
+      <dd><%= f.search_field :access_start, :placeholder => "(例)東京都" %></dd>
+    </dl>
+    <dl>
+      <dd><%= f.label :access_start, "家賃" %></dd>
+      <dd><%= f.label :rent_gteq, "下限" %></dd>
+      <dd><%= f.number_field :rent_gteq, :placeholder => "(例)500000"  %>円</dd>
+      <dd> <%= f.label :rent_lteq, "上限" %></dd>
+      <dd><%= f.number_field :rent_lteq, :placeholder => "(例)100000"  %>円</dd>
+    </dl>
+    <dl>
+      <dd><%= f.label :deposit_start, "敷金" %></dd>
+      <dd><%= f.label :deposit_gteq, "下限" %></dd>
+      <dd><%= f.number_field :deposit_gteq, :placeholder => "(例)0" %>円</dd>
+      <dd><%= f.label :deposit_lteq, "上限" %></dd>
+      <dd><%= f.number_field :deposit_lteq, :placeholder => "(例)10000" %>円</dd>
+    </dl>
+    <dl>
+      <dd><%= f.label :gratuityfee_start, "礼金" %></dd>
+      <dd><%= f.label :gratuityfee_gteq, "下限" %></dd>
+      <dd><%= f.number_field :gratuityfee_gteq, :placeholder => "(例)0" %>円</dd>
+      <dd><%= f.label :gratuityfee_lteq, "上限" %></dd>
+      <dd><%= f.number_field :gratuityfee_lteq, :placeholder => "(例)10000" %>円</dd>
+    </dl>
+    <dl>
+      <dd><%= f.label :area_start, "専有面積" %></dd>
+      <dd><%= f.label :area_gteq, "下限" %></dd>
+      <dd><%= f.number_field :area_gteq, :placeholder => "(例)30" %>ｍ²</dd>
+      <dd><%= f.label :area_lteq, "上限" %></dd>
+      <dd><%= f.number_field :area_lteq, :placeholder => "(例)50" %>ｍ²</dd>
+    </dl>
+    <dl>
+      <dd><%= f.label :age_start, "築年数" %></dd>
+      <dd><%= f.label :age_gteq, "下限" %></dd>
+      <dd><%= f.number_field :age_gteq, :placeholder => "(例)5" %>年</dd>
+      <dd><%= f.label :age_lteq, "上限" %></dd>
+      <dd> <%= f.number_field :age_lteq, :placeholder => "(例)10" %>年</dd>
+    </dl>
+    <dl>
+      <dd><%= f.label :layout_start, "間取り" %></dd>
+      <dd><%= f.search_field :layout_start, :placeholder => "(例)１LDK" %></dd>
+    </dl>
+     <dl>
+      <dd> <%= f.label :lightning_start, "主要採光面" %></dd>
+      <dd> <%= f.search_field :lightning_start, :placeholder => "(例)南向き" %></dd>
+    </dl>
+    <dl>
+      <dd><%= f.label :service_start, "設備" %></dd>
+      <dd><%= f.search_field :service_start, :placeholder => "(例)バス・トイレ別" %></dd>
+    </dl>
+    <dl>
+      <dd><%= f.label :hashtag_start, "ハッシュタグ" %></dd>
+      <dd><%= f.search_field :hashtag_cont, :placeholder => "(例)#おしゃれ" %></dd>
+    </dl>
+    <%# 検索ボタン %>
+    <%= f.submit %>
+  <% end %> 
+</div>
+  
+</div>
+
+

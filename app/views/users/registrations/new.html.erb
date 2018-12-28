@@ -1,41 +1,27 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
-  <br><br><br>
-  <h1>新規登録</h1>
   <br>
-  
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "name" %>
-  </div>
-  
+  <h1>新規登録(一般)</h1>
   <br>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-  <br>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(※最少<%= @minimum_password_length %>文字)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-  
-  <br>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  
-  <br>
-
+  <table class="table">
+    <tr>
+      <th>お名前<span class="text-danger"> (必須)</span></th>
+      <td> <%= f.text_field :name, :size=>"150", autocomplete: "name"  %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス<span class="text-danger"> (必須)</span></th>
+      <td> <%= f.email_field :email, :size=>"150", autofocus: true, autocomplete: "email" %></td>
+    </tr>
+    <tr>
+      <th>パスワード※最少6文字 <span class="text-danger"> (必須)</span></th>
+      <td> <%= f.password_field :password, :size=>"150", autocomplete: "new-password"  %></td>
+    </tr>
+    <tr>
+      <th>確認用パスワード <span class="text-danger"> (必須)</span></th>
+      <td> <%= f.password_field :password_confirmation, :size=>"150", autocomplete: "new-password"  %></td>
+    </tr>
+  </table>
   <div class="actions">
     <%= f.submit "新規登録" %>
   </div>

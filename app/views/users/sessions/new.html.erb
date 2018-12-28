@@ -2,24 +2,19 @@
 
 <%= form_for(resource, as: @user, url: session_path(@user)) do |f| %>
 <%= devise_error_messages! %>
-
-  <br><br><br>
+  <br>
   <h1>ログイン(一般)</h1>
-  <br> <br />
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-   <br />
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-  
-   <br />
-
+  <br>
+  <table class="table">
+    <tr>
+      <th>メールアドレス<span class="text-danger"> (必須)</span></th>
+      <td> <%= f.email_field :email, :size=>"150", autofocus: true, autocomplete: "email" %></td>
+    </tr>
+    <tr>
+      <th>パスワード<span class="text-danger"> (必須)</span></th>
+      <td> <%= f.password_field :password, :size=>"150", autocomplete: "current-password" %></td>
+    </tr>
+   </table>
   <div class="actions">
     <%= f.submit "ログイン" %>
   </div>

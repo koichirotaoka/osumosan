@@ -3,7 +3,8 @@ include CarrierWave::MiniMagick
    # MiniMagickをincludeすると画像サイズ調整ができるようになる
   storage :file # 保存形式の設定。他に使うものとしてはfog形式などがある。
 
-  process :resize_to_limit => [500, 500] # 画像サイズの調整
+  #process :resize_to_limit => [500, 500] # 画像サイズの調整
+  process resize_to_fit: [800, 800]
 
   # 画像ファイルの保存先の設定
   # 保存先を指定するには `store_dir` というメソッドに定義します。

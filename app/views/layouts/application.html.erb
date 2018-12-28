@@ -3,10 +3,11 @@
   <head>
     <title>Osumosan</title>
     <%= csrf_meta_tags %>
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
 
   <body>
     <header>
@@ -70,8 +71,10 @@
               <%= link_to "新規登録(一般)",new_user_registration_path, class: "btn btn-secondary"%>
             </div>
           <% end %>
+      </div>
+    </div>
     </header>
-    
+    <br><br><br>
     <p class="alert"><%= alert %></p>
     
     <%= yield %>

@@ -76,7 +76,6 @@ header {
   text-align: center; }
 
 .logined {
-  padding-top: 5px;
   margin: 20px 20px;
   float: right;
   text-align: center; }
@@ -215,6 +214,357 @@ th{
   display: none;
 }
 
+input[type=file] {
+  display: block;
+  margin:auto;
+}
+
+div.vendor {
+	width: 900px;
+	overflow: hidden;
+	margin: 40px auto 30px auto;
+	padding: 15px;
+	float: left;
+}
+div.show {
+	width: 900px;
+	overflow: hidden;
+	border: 2px solid #dfdfdf;
+	box-sizing: border-box;
+	border-radius: 3px;
+	margin: 30px auto 30px auto;
+	padding: 15px;
+	float: center;
+}
+div.show h4 {
+	background-color: #f5f5f5;
+	box-sizing: border-box;
+	margin: 0px 0px 20px 0px;
+	padding: 10px;
+}
+div.show img.img {
+	width: 40%;
+	height: auto;
+	float: left;
+	margin: 0px auto 20px auto;
+}
+div.show ul {
+	width: 57%;
+	float: right;
+	overflow: hidden;
+	margin: 0px 0px 20px 0px;
+	padding: 0px;
+}
+div.show ul li {
+	width: 100%;
+	text-align: left;
+	overflow: hidden;
+	border-bottom: 1px dotted #999;
+	margin: 0px 0px 10px 0px;
+	padding: 0px 0px 10px 0px;
+}
+div.show ul li:last-child {
+	border-bottom: none;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+div.show ul li dl {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+div.show ul li dl dt {
+	width: 18%;
+	text-align: center;
+	background-color: #3975b2;
+	font-size: 12px;
+	line-height: 20px;
+	float: left;
+	color: #fff;
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+}
+div.show ul li dl dd {
+	width: 82%;
+	float: right;
+	margin: 0px;
+	padding-left:10px;
+}
+div.show div {
+	width: 100%;
+	overflow: hidden;
+	border: 1px solid #dfdfdf;
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+div.show div ol {
+	width: 100%;
+	overflow: hidden;
+	display: table;
+	margin: 0px;
+	padding: 0px;
+}
+div.show div ol li {
+	width: 10%;
+	text-align: center;
+	display: table-cell;
+	overflow: hidden;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #f5f5f5;
+	border-right: 1px solid #dfdfdf;
+	border-bottom: none;
+	margin: 0px 0px 10px 0px;
+	padding: 30px 0px 10px 0px;
+}
+div.show div ol li:last-child {
+	border-right: none;
+}
+div.show div ul {
+	width: 100%;
+	overflow: hidden;
+	display: table;
+	border-top: 1px solid #dfdfdf;
+	margin: 0px;
+	padding: 0px;
+}
+div.show div ul li {
+	width: 10%;
+	text-align: center;
+	display: table-cell;
+	overflow: hidden;
+	font-size: 14px;
+	border-bottom: none;
+	margin: 0px 0px 10px 0px;
+	padding: 10px 10px 10px 0px;
+}
+
+div.show div ul li a {
+	font-size: 14px;
+	color: #3975b2;
+	text-decoration: underline;
+}
+div.show div ul li strong {
+	font-size: 14px;
+	color: #bc1309;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+div.list_property {
+	width: 900px;
+	overflow: hidden;
+	border: 2px solid #dfdfdf;
+	box-sizing: border-box;
+	border-radius: 3px;
+	margin: 30px auto 30px auto;
+	padding: 15px;
+	float: left;
+}
+div.list_property h4 {
+	background-color: #f5f5f5;
+	box-sizing: border-box;
+	margin: 0px 0px 20px 0px;
+	padding: 10px;
+}
+div.list_property img.img {
+	width: 40%;
+	height: auto;
+	float: left;
+	margin: 0px auto 20px auto;
+}
+div.list_property ul {
+	width: 57%;
+	float: right;
+	overflow: hidden;
+	margin: 0px 0px 20px 0px;
+	padding: 0px;
+}
+div.list_property ul li {
+	width: 100%;
+	text-align: left;
+	overflow: hidden;
+	border-bottom: 1px dotted #999;
+	margin: 0px 0px 10px 0px;
+	padding: 0px 0px 10px 0px;
+}
+div.list_property ul li:last-child {
+	border-bottom: none;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+div.list_property ul li dl {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+div.list_property ul li dl dt {
+	width: 18%;
+	text-align: center;
+	background-color: #3975b2;
+	font-size: 12px;
+	line-height: 20px;
+	float: left;
+	color: #fff;
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+}
+div.list_property ul li dl dd {
+	width: 82%;
+	float: right;
+	margin: 0px;
+	padding-left:10px;
+}
+div.list_property div {
+	width: 100%;
+	overflow: hidden;
+	border: 1px solid #dfdfdf;
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+div.list_property div ol {
+	width: 100%;
+	overflow: hidden;
+	display: table;
+	margin: 0px;
+	padding: 0px;
+}
+div.list_property div ol li {
+	width: 10%;
+	text-align: center;
+	display: table-cell;
+	overflow: hidden;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #f5f5f5;
+	border-right: 1px solid #dfdfdf;
+	border-bottom: none;
+	margin: 0px 0px 10px 0px;
+	padding: 30px 0px 10px 0px;
+}
+div.list_property div ol li:last-child {
+	border-right: none;
+}
+div.list_property div ul {
+	width: 100%;
+	overflow: hidden;
+	display: table;
+	border-top: 1px solid #dfdfdf;
+	margin: 0px;
+	padding: 0px;
+}
+div.list_property div ul li {
+	width: 10%;
+	text-align: center;
+	display: table-cell;
+	overflow: hidden;
+	font-size: 14px;
+	border-bottom: none;
+	margin: 0px 0px 10px 0px;
+	padding: 10px 0px 10px 0px;
+}
+
+div.list_property div li #link_to{
+	width: 10%;
+	text-align: center;
+	display: table-cell;
+	font-size: 14px;
+	border-bottom: none;
+}
+
+div.list_property div ul li a {
+	font-size: 14px;
+	color: #3975b2;
+	text-decoration: underline;
+}
+div.list_property div ul li strong {
+	font-size: 14px;
+	color: #bc1309;
+}
+
+
+
+
+div.side_search {
+	width: 250px;
+	overflow: hidden;
+	margin: 20px auto 30px auto;
+	padding: 30px;
+	float: center;
+}
+div.side_search ol {
+	width: 100%;
+	margin: 10px auto 0px auto;
+	padding: 0px;
+}
+div.side_search ol li {
+	width: 100%;
+	float: left;
+	text-align: left;
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+}
+div.side_search ol li label {
+	font-size: 10px;
+}
+div.side_search dl {
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 2px solid #dfdfdf; 
+	margin: 0px auto 15px auto;
+	padding: 0px 0px 15px 0px;
+}
+div.side_search dl:first-of-type {
+	padding-top: 15px;
+}
+div.side_search dl dt {
+	width: 100%;
+	text-align: left;
+	font-weight: bold;
+	margin: 0px 0px 10px 0px;
+	padding: 3px 10px 3px 10px;
+}
+div.side_search dl dd {
+	width: 100%;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+}
+div.side_search dl dd ul {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+div.side_search dl dd ul li {
+	width: 50%;
+	float: left;
+	text-align: left;
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+}
+div.side_search dl dd ul li:last-child {
+	margin-bottom: 0px;
+}
+div.side_search dl dd ul li.w100 {
+	width: 100%;
+}
+div.side_search dl dd ul li label {
+	font-size: 12px;
+}
+div.side_search dl dd select {
+	font-size: 12px;
+}
 
 
 

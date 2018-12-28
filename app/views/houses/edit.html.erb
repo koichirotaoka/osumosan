@@ -26,11 +26,11 @@
         <%= form.label :"物件名" %>：
         <%= form.text_field :title %>
       </div>
-      <div>
-        <%= image_tag(@house.image.url) if @house.image.url %>
+      <div class="field">
+        <%= image_tag(@house.image.url) if @house.image.url %><br>
         <%= form.file_field :image %>
       </div>
-      <div class="field">
+      <div class="image">
         <%= form.label :"所在地" %>：
         <%= form.text_field :location %>
       </div>
@@ -75,7 +75,7 @@
         <%= form.text_area :hashtag %>
       </div>
           
-      <%= form.submit  "編集する" , class: 'btn btn-success'%>
+      <%= form.submit  "編集する" , class: 'btn btn-warning'%>
           
     <% end %>
     <%= link_to "もどる", houses_path , class: 'btn btn-secondary'%>
